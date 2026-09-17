@@ -1,0 +1,26 @@
+[project]
+name = "brain-rdm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+# rsatoolbox pulls in scikit-learn, scikit-image and their transitive
+# dependencies, which is a deliberate departure from this project's earlier
+# "keep the dependency list short" policy. It buys the noise-ceiling code an
+# upstream that the local implementation is held to (tests/test_rsatoolbox_parity.py)
+# and a correct crossnobis estimator, both of which are error-prone to write
+# by hand -- the removed `mahalanobis` is what writing one by hand looked like.
+dependencies = [
+    "bdpy>=0.26",
+    "matplotlib>=3.7.5",
+    "pandas>=2.0.3",
+    "pathlib>=1.0.1",
+    "requests>=2.32.4",
+    "rsatoolbox>=0.2.0",
+    "scipy>=1.10.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
